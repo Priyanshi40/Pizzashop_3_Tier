@@ -1,6 +1,5 @@
 ﻿@model PizzaShop.ViewModels.LoginViewModel
 
-
 @{
     ViewData["Title"] = "Home Page";
     Layout = "_Layout1";
@@ -55,8 +54,8 @@
 
                 <div class="row mt-2 d-flex m-1 align-items-center justify-content-center ">
                     <div class="col form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" asp-for="RememberMe" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault" asp-for="RememberMe">
                             Remember Me
                         </label>
                     </div>

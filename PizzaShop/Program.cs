@@ -1,7 +1,9 @@
 using BLL.Services;
 using DAL.Models;
 using DAL.Repositories;
+using MailKit;
 using Microsoft.EntityFrameworkCore;
+using PizzaShop.ViewModels;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +12,13 @@ var builder = WebApplication.CreateBuilder(args);
 var conn = builder.Configuration.GetConnectionString("PizzashopDBConnection");
 builder.Services.AddDbContext<PizzashopContext>(q => q.UseNpgsql(conn));
 
+builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
+// builder.Services.AddTransient<IMailService, MailService>();
+
 builder.Services.AddScoped<LoginRepository>();
 builder.Services.AddScoped<LoginService>();
+
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddControllersWithViews();
 

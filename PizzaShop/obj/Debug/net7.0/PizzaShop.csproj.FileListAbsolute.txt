@@ -281,3 +281,11 @@ C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\BLL.dll
 C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\DAL.dll
 C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\BLL.pdb
 C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\DAL.pdb
+C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\MailKit.dll
+C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\MimeKit.dll
+C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\System.Formats.Asn1.dll
+C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\System.Text.Encoding.CodePages.dll
+C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Text.Encoding.CodePages.dll
