@@ -1,0 +1,56 @@
+@model PizzaShop.ViewModels.LoginViewModel
+
+
+@{
+    ViewData["Title"] = "Forgot Password";
+    Layout = "_Layout1";
+}
+
+<div class="row vh-100 vw-100 align-items-center justify-content-center">
+
+    <div class="col-md-6">
+        <div class="overflow-hidden ">
+            <img src="~/images/dominos_background.jpg" class="img-fluid vh-100 p-0" alt="...">
+        </div>
+
+    </div>
+
+    <div class="col-md-6 align-items-center justify-content-center">
+
+        <div class="row align-items-center mt-sm-5">
+            <div class="col text-end">
+                <img src="~/images/logos/pizzashop_logo.png" class=" img-fluid h-25 w-25 " alt="...">
+            </div>
+            <h2 class="col text-primary">PIZZASHOP</h2>
+        </div>
+
+        <div class="row justify-content-center align-items-center d-flex ps-4">
+
+            <div class="row mt-3 ps-2 w-75">
+                <h5>Forgot password</h5>
+                <span class="mb-2">Enter your email and we will send you a link to reset your password</span>
+            </div>
+
+            <div class="alert alert-danger">
+                        @Model.Email
+                    </div>
+
+            <form action="" class="w-75">
+                <div class="position-relative m-1 " id="emailDiv">
+                    <input class=" fs-6 form-control  form-control-lg " type="email"
+                        aria-label=".form-control-lg example" asp-for="Email" value="@Model.Email" id="email">
+                    <span class="position-absolute emailInput"><i class="fa-solid fa-user "></i></span>
+                </div>
+
+                <div class="row mt-3 m-1 ">
+                    <input class="btn btn-primary" type="submit" value="Send" id="btnSubmit">
+                </div>
+            </form>
+
+            <div class="row mt-2 ps-2 w-50 ">
+                <a asp-action="Index" class="d-flex col justify-content-center align-items-center"
+                    style="text-decoration: none;">Back to Login</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.emailInput{
+    margin: auto;
+    top: 8px;
+    /* left: 425px; */
+    transition: transformY(140%);
+    right:17px;
+}
+
+.passInput{
+    margin: auto;
+    top: 15px;
+    /* left: 425px; */
+    transition: transformY(140%);
+    right:20px;
+}
+
+.fileInput{
+    margin: 0;
+    top:0;
+    left:0;
+    right: 0;
+    opacity: 0;
+    height: auto;
+    /* z-index: 0; */
+}
+
+.sidebar{
+    background-color:#ffffff;
+    /* margin-top:54px; */
+    top: 0;
+    padding: 12px;
+    position: fixed;
+    height: 100%;
+    width: 270px;
+    left:0;
+    z-index: 10;
+    transition: transform 0.3s ease-in-out ;
+}
+
+.sidebar.show{
+    transform: translateX(-100%);
+}
+
+.content.shifted {
+    margin: 0 3vw;
+  }
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+    padding-bottom: 3px;
+    font-size: 1.2rem;
+}
+
+.sidebar ul a{
+    text-decoration: none;
+    /* padding-left: 12px; */
+    color: black;
+}
+
+
+.sidebar ul a:hover{
+    text-decoration: none;
+    padding: 12px 8px 12px 2px;
+    color: blue;
+    background-color: #e4e4e4;
+    border-radius: 7px;
+}
+
+
+.editPen, .editTrash{
+    visibility: hidden;
+}
+
+.mainDiv:hover .editPen, .mainDiv:hover .editTrash{
+    visibility : visible;
+} 
+
+.dash{
+    /* z-index: 1; */
+    margin:  0 2vw 0 2vw;
+}
+
+@media (max-width:1268px) {
+    .dash{
+        margin: 0 6vw 0 6vw;
+    }
+}
+
+@media (max-width:480) {
+    .dash{
+        margin: 0 4vw 0 4vw;
+    }
+}

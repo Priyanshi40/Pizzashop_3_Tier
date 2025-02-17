@@ -1,0 +1,109 @@
+﻿@model PizzaShop.ViewModels.LoginViewModel
+
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout1";
+}
+
+<div class=" row vh-100 vw-100 align-items-center justify-content-center">
+
+    <div class="pizzaBG col-md-6">
+        <div class="overflow-hidden ">
+            <img src="~/images/dominos_background.jpg" class="img-fluid vh-100 p-0" alt="...">
+        </div>
+
+    </div>
+
+    <div class="pizzaContent col-md-6 align-items-center justify-content-center">
+
+        @* <div class="row align-items-center mt-sm-5">
+            <div class="col text-end">
+                <img src="~/images/logos/pizzashop_logo.png" class=" img-fluid h-25 w-25 " alt="...">
+            </div>
+            <h2 class="col text-primary">PIZZASHOP</h2>
+        </div> *@
+
+        <div class="logo align-items-center justify-content-center mt-sm-5 d-flex">
+            <img src="~/images/logos/pizzashop_logo.png" class="img-fluid pe-3" alt="..."
+                style="height: 70px; width: 97px;">
+            <h3 class="text-primary">PIZZASHOP</h3>
+        </div>
+
+        <div class="row justify-content-center align-items-center d-flex ps-4">
+
+            <div class="text-start row mt-3 ps-2 w-75">
+                <h2>Welcome,</h2>
+            </div>
+            <form id="loginForm" class="w-75" asp-controller="Home" asp-action="LogIn" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="position-relative m-1 " id="emailDiv">
+                    <input id="email" asp-for="Email" class="fs-6 form-control  form-control-lg" type="text"
+                        placeholder="Email" aria-label="Email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+
+                    <span class="position-absolute emailInput"><i class="fa-solid fa-user "></i></span>
+                </div>
+
+                <div class="position-relative m-1 " id="passwordDiv">
+                    <input asp-for="Password" class="fs-6 form-control form-control-lg" type="password" id="password"
+                        placeholder="Password" aria-label="Password">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <span class="position-absolute emailInput"><i id="passwordIcon"
+                            class="fa-regular fa-eye-slash"></i></span>
+                </div>
+
+                <div class="row mt-2 d-flex m-1 align-items-center justify-content-center ">
+                    <div class="col form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Remember Me
+                        </label>
+                    </div>
+                    @* <a asp-action="LogIn" asp-route-id="@Model?.email">LogIn</a>  *@
+                    @* <div class="col text-end pe-0"><a asp-action="Forgot" style="text-decoration: none;">Forgot
+                            Password?</a></div> *@
+                    <div class="col text-end pe-0"><a asp-action="Forgot" asp-route-email="@Model?.Email"
+                            style="text-decoration: none;">Forgot
+                            Password?</a></div>
+
+                </div>
+                <div class="row mt-3 m-1 ">
+                    @* <input class="btn btn-primary" type="submit" value="Log In" id="btnSubmit"> *@
+                    <button class="btn btn-primary" type="submit"> log in</button>
+                </div>
+
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["Error"]
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    const passIcon = document.querySelector('#passwordIcon');
+    const pass = document.querySelector('#password');
+    passIcon.addEventListener('click', function () {
+
+        const type = pass.getAttribute('type') === 'password' ? 'text' : 'password';
+        pass.setAttribute('type', type);
+        this.classList.toggle('fa-eye');
+    });
+
+
+    document.querySelector('a[asp-action="Forgot"]').addEventListener('click', function (e) {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        window.location.href = `/Home/Forgot?email=${encodeURIComponent(email)}`;
+    });
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
