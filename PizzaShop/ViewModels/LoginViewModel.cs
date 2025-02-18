@@ -14,4 +14,7 @@ public class LoginViewModel
 
     [DisplayName("Remember Me")]
     public bool RememberMe {get; set;}
+
+    // public string? ResetToken {get; set;}
+    // public DateTime ResetTokenExpiry {get; set;}
 }

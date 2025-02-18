@@ -31,9 +31,16 @@
 
         <div class="row justify-content-center align-items-center d-flex ps-4">
 
+            @if (TempData["Message"] != null)
+            {
+                <div class="row alert alert-info w-75 fs-6">
+                    @TempData["Message"]
+                </div>
+            }
             <div class="text-start row mt-3 ps-2 w-75">
                 <h2>Welcome,</h2>
             </div>
+
             <form id="loginForm" class="w-75" asp-controller="Home" asp-action="LogIn" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="position-relative m-1 " id="emailDiv">

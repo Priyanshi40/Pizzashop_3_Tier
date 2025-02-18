@@ -11,9 +11,15 @@ public class LoginRepository
     {
         _context = context;
     }
-
     public async Task<User?> GetUserByEmailAsync(string email)
     {
         return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
     }
+    public void UpdatePassword(User user, string newPassword)
+    {
+        var pass = BCrypt.Net.BCrypt.EnhancedHashPassword(newPassword);
+        user.Password = pass;
+        // user.Password = newPassword;
+        _context.SaveChanges();
+    } 
 }

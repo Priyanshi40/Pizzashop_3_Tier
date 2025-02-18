@@ -4,6 +4,8 @@ using PizzaShop.ViewModels;
 using MimeKit;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Options;
+using DAL.Repositories;
+using Microsoft.IdentityModel.Tokens;
 
 namespace PizzaShop.Controllers
 {
@@ -13,6 +15,7 @@ namespace PizzaShop.Controllers
         private readonly EmailService _mailService;
         private readonly EmailSettings _mailSettings;
         private readonly LoginService _loginService;
+        
         public HomeController(LoginService loginService, EmailService mailService,EmailSettings mailSettings)
         {
             _loginService = loginService;
@@ -42,16 +45,35 @@ namespace PizzaShop.Controllers
             // Console.WriteLine(model.Email);
             return View();
         }
-        public IActionResult ResetPassword()
+        public IActionResult ResetPassword(string email)
         {
-            return View();
+            if(email.IsNullOrEmpty()){
+                TempData["Error"] = "Invalid email";
+                return View();
+            }
+            var model = new ResetPasswordViewModel { Email = email};
+            return View(model);
         }
-        
-        // public IActionResult ResetPassword(string? token, string? newPassword)
-        // {
-        //     TempData["Message"] = "password Updated Successfully!";
-        //     return RedirectToAction("Login");
-        // }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = "Enter valid password!!";
+                return View();
+            }
+            var user = await _loginService.GetUser(model.Email);
+            if (user == null)
+            {
+                TempData["Error"] = "User not found!! Try entering valid email and password";
+                return View();
+            }
+            _loginService.UpdatePasswordService(user, model.NewPassword);
+
+            TempData["Message"] = "Password Updated Successfully!";
+            return RedirectToAction("Index");
+        }
         public IActionResult Dashboard()
         {
             return View();

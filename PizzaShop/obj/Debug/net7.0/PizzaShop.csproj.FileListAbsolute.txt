@@ -289,3 +289,4 @@ C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\System.Security.
 C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\System.Text.Encoding.CodePages.dll
 C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Text.Encoding.CodePages.dll
+C:\Users\pci72\Desktop\T44\Pizzashop\PizzaShop\bin\Debug\net7.0\BCrypt.Net-Next.dll

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "RtVs8uA6FZihvNrHyfHNTVj+gQwvHHuQl0vkJvflqN5C049tcC6abm6OEk84ug7rD+YmBmgnf5hl2EWw2xXI4A==",
+  "dgSpecHash": "0WsYt0CXyG0669FYOO1CkXf3CZ88vkbIYb5X74zCbsuDXKRkbP7xgA3d2BrQRdbybKfzcY6MEGrEekfLIWE0tg==",
   "success": true,
   "projectFilePath": "C:\\Users\\pci72\\Desktop\\T44\\Pizzashop\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pci72\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\pci72\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\pci72\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\pci72\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\pci72\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\pci72\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

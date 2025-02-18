@@ -16,6 +16,12 @@
 
     <div class="col-md-6 align-items-center justify-content-center">
 
+        @if (TempData["Message"] != null)
+        {
+            <div class="row alert alert-info w-75 fs-6">
+                @TempData["Message"]
+            </div>
+        }
         <div class="row align-items-center mt-sm-5">
             <div class="col text-end">
                 <img src="~/images/logos/pizzashop_logo.png" class=" img-fluid h-25 w-25 " alt="...">
@@ -30,13 +36,6 @@
                 <span class="mb-2">Enter your email and we will send you a link to reset your password</span>
             </div>
 
-            @if (TempData["Message"] != null)
-            {
-                <div class="alert alert-danger">
-                    @TempData["Message"]
-                </div>
-            }
-
             <form asp-action="ForgotPassword" class="w-75" method="post">
                 <div class="position-relative m-1 " id="emailDiv">
                     <input class=" fs-6 form-control  form-control-lg " type="email"
@@ -45,8 +44,7 @@
                 </div>
 
                 <div class="row mt-3 m-1 ">
-                    <input class="btn btn-primary" type="submit" value="Send"
-                        id="btnSubmit">
+                    <input class="btn btn-primary" type="submit" value="Send" id="btnSubmit">
                 </div>
             </form>
 
