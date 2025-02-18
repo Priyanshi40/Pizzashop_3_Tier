@@ -16,7 +16,7 @@ document.getElementById('closeBtn').addEventListener('click', function () {
     sidebar.classList.toggle('show');
 });
 
-
+// ----------------Password----------------
 const passIcon = document.querySelector('#passwordIcon');
 const pass = document.querySelector('#password');
 passIcon.addEventListener('click',function(){

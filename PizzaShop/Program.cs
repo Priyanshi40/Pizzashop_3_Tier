@@ -8,17 +8,16 @@ using PizzaShop.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var emailSettings = builder.Configuration.GetSection("EmailSettings").Get<EmailSettings>();
+builder.Services.AddSingleton(emailSettings);
 // Add services to the container.
 var conn = builder.Configuration.GetConnectionString("PizzashopDBConnection");
 builder.Services.AddDbContext<PizzashopContext>(q => q.UseNpgsql(conn));
 
-builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
-// builder.Services.AddTransient<IMailService, MailService>();
 
 builder.Services.AddScoped<LoginRepository>();
 builder.Services.AddScoped<LoginService>();
-
-builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped<EmailService>();
 
 builder.Services.AddControllersWithViews();
 

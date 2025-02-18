@@ -10,18 +10,16 @@ namespace PizzaShop.Controllers
     public class HomeController : Controller
     {
         const string CookieUserEmail = "UserEmail";
-        private readonly MailService _mailService;
-        public HomeController(MailService mailService)
-        {
-            _mailService = mailService;
-        }
+        private readonly EmailService _mailService;
+        private readonly EmailSettings _mailSettings;
         private readonly LoginService _loginService;
-        //  public readonly PizzashopContext _context;
-        public HomeController(LoginService loginService)
+        public HomeController(LoginService loginService, EmailService mailService,EmailSettings mailSettings)
         {
             _loginService = loginService;
-        }
+            _mailService = mailService;
+            _mailSettings = mailSettings;
 
+        }
         public IActionResult Index()
         {
             if (Request.Cookies.ContainsKey(CookieUserEmail))
@@ -32,33 +30,29 @@ namespace PizzaShop.Controllers
             return View(new LoginViewModel());
         }
 
-        public IActionResult Forgot(string? email)
+        public IActionResult Forgot()
         {
             // ViewData["Email"] = TempData["Email"];
             // TempData.Keep("Email");
-            Console.WriteLine(email);
-            var model = new LoginViewModel
-            {
-                Email = email
-            };
-            Console.WriteLine(model.Email);
-            return View(model);
-        }
-        public IActionResult ResetPassword(string? token)
-        {
-            ViewBag.Token = token;
+            // Console.WriteLine(email);
+            // var model = new LoginViewModel
+            // {
+            //     Email = email
+            // };
+            // Console.WriteLine(model.Email);
             return View();
         }
-        public IActionResult ResetPassword(string? token, string? newPassword)
+        public IActionResult ResetPassword()
         {
-            TempData["Message"] = "password Updated Successfully!";
-            return RedirectToAction("Login");
+            return View();
         }
+        
+        // public IActionResult ResetPassword(string? token, string? newPassword)
+        // {
+        //     TempData["Message"] = "password Updated Successfully!";
+        //     return RedirectToAction("Login");
+        // }
         public IActionResult Dashboard()
-        {
-            return View();
-        }
-        public IActionResult Error()
         {
             return View();
         }
@@ -107,53 +101,14 @@ namespace PizzaShop.Controllers
         }
 
         [HttpPost]
+        // public async Task<IActionResult> ForgotPassword(string email){
         public async Task<IActionResult> ForgotPassword(string email){
-            string resetToken = Guid.NewGuid().ToString();
-            string resetLink = Url.Action("ResetPassword", "Home", new { token = resetToken }, Request.Scheme);
-            await _mailService.SendForgotPasswordEmail(email,resetLink);
+            string resetLink = Url.Action("ResetPassword", "Home", new { email = email }, Request.Scheme);
+            await _mailService.SendForgotPasswordEmail(email,resetLink,_mailSettings.Host,_mailSettings.EmailId,_mailSettings.Password,_mailSettings.Port);
             TempData["Message"]= "Password reset link has been sent to your email";
-            return RedirectToAction("Login");
+            return RedirectToAction("Forgot");
         }
-        
-    
     }
 
-    // public class MailService
-    // {
-    //     MailSettings Mail_Settings = null;
-    //     public MailService(IOptions<MailSettings> options)
-    //     {
-    //         Mail_Settings = options.Value;
-    //     }
-    //     public bool SendMail(MailData Mail_Data)
-    //     {
-    //         try
-    //         {
-    //             //MimeMessage - a class from Mimekit
-    //             MimeMessage email_Message = new MimeMessage();
-    //             MailboxAddress email_From = new MailboxAddress(Mail_Settings.Name, Mail_Settings.EmailId);
-    //             email_Message.From.Add(email_From);
-    //             MailboxAddress email_To = new MailboxAddress(Mail_Data.EmailToName, Mail_Data.EmailToId);
-    //             email_Message.To.Add(email_To);
-    //             email_Message.Subject = Mail_Data.EmailSubject;
-    //             BodyBuilder emailBodyBuilder = new BodyBuilder();
-    //             emailBodyBuilder.TextBody = Mail_Data.EmailBody;
-    //             email_Message.Body = emailBodyBuilder.ToMessageBody();
-    //             //this is the SmtpClient class from the Mailkit.Net.Smtp namespace, not the System.Net.Mail one
-    //             SmtpClient MailClient = new SmtpClient();
-    //             MailClient.Connect(Mail_Settings.Host, Mail_Settings.Port, Mail_Settings.UseSSL);
-    //             MailClient.Authenticate(Mail_Settings.EmailId, Mail_Settings.Password);
-    //             MailClient.Send(email_Message);
-    //             MailClient.Disconnect(true);
-    //             MailClient.Dispose();
-    //             return true;
-    //         }
-    //         catch (Exception ex)
-    //         {
-    //             // Exception Details
-    //             return false;
-    //         }
-    //     }
-    // }
 }
 

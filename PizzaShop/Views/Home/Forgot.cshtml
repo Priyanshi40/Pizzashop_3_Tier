@@ -1,6 +1,5 @@
 @model PizzaShop.ViewModels.LoginViewModel
 
-
 @{
     ViewData["Title"] = "Forgot Password";
     Layout = "_Layout1";
@@ -31,19 +30,23 @@
                 <span class="mb-2">Enter your email and we will send you a link to reset your password</span>
             </div>
 
-            <div class="alert alert-danger">
-                        @Model.Email
-                    </div>
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert alert-danger">
+                    @TempData["Message"]
+                </div>
+            }
 
-            <form action="" class="w-75">
+            <form asp-action="ForgotPassword" class="w-75" method="post">
                 <div class="position-relative m-1 " id="emailDiv">
                     <input class=" fs-6 form-control  form-control-lg " type="email"
-                        aria-label=".form-control-lg example" asp-for="Email" value="@Model.Email" id="email">
+                        aria-label=".form-control-lg example" asp-for="Email" value="Email" id="email">
                     <span class="position-absolute emailInput"><i class="fa-solid fa-user "></i></span>
                 </div>
 
                 <div class="row mt-3 m-1 ">
-                    <input class="btn btn-primary" type="submit" value="Send" asp-action="ForgotPassword" asp-route-email="@Model?.Email" id="btnSubmit" >
+                    <input class="btn btn-primary" type="submit" value="Send"
+                        id="btnSubmit">
                 </div>
             </form>
 
