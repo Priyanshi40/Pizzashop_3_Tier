@@ -6,27 +6,36 @@ using MailKit.Net.Smtp;
 using Microsoft.Extensions.Options;
 using DAL.Repositories;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PizzaShop.Controllers
 {
+    // [Authorize]
     public class HomeController : Controller
     {
-        const string CookieUserEmail = "UserEmail";
+        // const string CookieUserEmail = "UserEmail";
+        const string AuthToken = "Authentication_Token";
         private readonly EmailService _mailService;
         private readonly EmailSettings _mailSettings;
         private readonly LoginService _loginService;
+        private readonly JWTServices _jwtService;
         
-        public HomeController(LoginService loginService, EmailService mailService,EmailSettings mailSettings)
+        public HomeController(LoginService loginService, EmailService mailService,EmailSettings mailSettings, JWTServices jwtService)
         {
             _loginService = loginService;
             _mailService = mailService;
             _mailSettings = mailSettings;
+            _jwtService = jwtService;
 
         }
+
+        // [AllowAnonymous]
         public IActionResult Index()
         {
-            if (Request.Cookies.ContainsKey(CookieUserEmail))
+            // if (Request.Cookies[AuthToken]!= null)
+            if (Request.Cookies.ContainsKey(AuthToken))
             {
+                Console.WriteLine("Token does exist");
                 // Response.Cookies.Delete(CookieUserEmail);
                 return View("Dashboard");
             }
@@ -76,6 +85,8 @@ namespace PizzaShop.Controllers
             TempData["Message"] = "Password Updated Successfully!";
             return RedirectToAction("Index");
         }
+
+
         public IActionResult Dashboard()
         {
             return View();
@@ -98,13 +109,14 @@ namespace PizzaShop.Controllers
 
             if (user != null)
             {
-                // Console.WriteLine("Inside check not null");
-                // Console.WriteLine(model.RememberMe);
-                if (model.RememberMe)
-                {
+                string token = _jwtService.GenerateToken(model.Email, model.RememberMe.ToString());
+
+                // if (model.RememberMe)
+                // {
                     Console.WriteLine("Inside check Remember me");
                     Console.WriteLine(model.RememberMe);
                     Console.WriteLine(model.Email);
+
                     CookieOptions options = new CookieOptions()
                     {
                         Domain = "localhost",
@@ -114,9 +126,9 @@ namespace PizzaShop.Controllers
                         HttpOnly = true, // Prevent client-side scripts from accessing the cookie
                         IsEssential = true // Indicates the cookie is essential for the application to function
                     };
-                    Response.Cookies.Append(CookieUserEmail, model.Email, options);
+                    Response.Cookies.Append(AuthToken,token, options);
 
-                }
+                // }
             }
 
             TempData["Email"] = model.Email;

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SY4zta3Wy4u+KsL2atoiLIU4RWeHSBej3BvBV8YKPuvRVeU3L5tw5Q2p1JyJUBOz7H7tRGMvYeDzrGD+J3+jRQ==",
+  "dgSpecHash": "jyaDggKT6hB8tTr+NfSdxUQ0Y9ZSZ+6/q4rQPnVTzKS8QkiDEnnd/ggLEfOGwpyK/TP6vbZCzP2UtKGGuc+wlg==",
   "success": true,
   "projectFilePath": "C:\\Users\\pci72\\Desktop\\T44\\Pizzashop\\PizzaShop\\PizzaShop.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\pci72\\.nuget\\packages\\bouncycastle.cryptography\\2.5.0\\bouncycastle.cryptography.2.5.0.nupkg.sha512",
     "C:\\Users\\pci72\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\pci72\\.nuget\\packages\\mailkit\\4.10.0\\mailkit.4.10.0.nupkg.sha512",
+    "C:\\Users\\pci72\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.4\\microsoft.aspnetcore.authentication.jwtbearer.7.0.4.nupkg.sha512",
     "C:\\Users\\pci72\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.11\\microsoft.aspnetcore.razor.language.6.0.11.nupkg.sha512",
     "C:\\Users\\pci72\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\pci72\\.nuget\\packages\\microsoft.build\\17.3.2\\microsoft.build.17.3.2.nupkg.sha512",
