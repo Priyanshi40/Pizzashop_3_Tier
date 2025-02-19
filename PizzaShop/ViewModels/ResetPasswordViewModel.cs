@@ -5,7 +5,8 @@ namespace PizzaShop.ViewModels;
 
 public class ResetPasswordViewModel
 {
-    // public string Token {get; set;} = null!;
+    public string Token {get; set;} = null!;
+    public DateTime ExpiryToken {get; set;}
     [Required]
     public string Email { get; set; } = null!;
 

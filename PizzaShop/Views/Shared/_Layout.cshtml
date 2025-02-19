@@ -7,24 +7,26 @@
     <title>@ViewData["Title"] - PizzaShop</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/User.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-body-tertiary">
     @* <header> *@
-        <nav class="navbar navbar-expand-lg position-fixed bg-primary ps-4">
-            <div class="d-flex align-items-center justify-content-center" id="sidebarToggle">
-                <img src="~/images/logos/pizzashop_logo.png" alt="" style="width: 60px;"><b
-                    class="text-white ps-2">PIZZASHOP</b>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </nav>
+    <nav class="navbar navbar-expand-lg position-fixed bg-primary ps-4">
+        <div class="d-flex align-items-center justify-content-center" id="sidebarToggle">
+            <img src="~/images/logos/pizzashop_logo.png" alt="" style="width: 60px;"><b
+                class="text-white ps-2">PIZZASHOP</b>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
     @* </header> *@
     <div class="sidebar justify-content-center align-items-center" id="sidebar">
         <ul>
@@ -34,25 +36,25 @@
                 <button type="button" class="btn-close text-end col-md" aria-label="Close" id="closeBtn"></button>
             </div>
             <div>
-                <a href="User_List.html"><i class="fa-solid fs-5 fa-users mb-3 pe-3"></i>Users</a>
+                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-users mb-3 pe-3"></i>Users</a>
             </div>
             <div>
-                <a href="Roles.html"><i class="fa-solid fs-5 fa-user-plus mb-3 pe-3"></i></i>Roles and Permission</a>
+                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-user-plus mb-3 pe-3"></i></i>Roles and Permission</a>
             </div>
             <div>
-                <a href="./Menu.html"><i class="fa-solid fs-5 fa-bell-concierge mb-3 pe-3"></i>Menu</a>
+                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-bell-concierge mb-3 pe-3"></i>Menu</a>
             </div>
             <div>
-                <a href="#"><i class="fa-solid fs-5 fa-table mb-3 pe-3"></i>Table and Section</a>
+                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-table mb-3 pe-3"></i>Table and Section</a>
             </div>
             <div>
-                <a href="#"><i class="fa-solid fs-5 fa-gear mb-3 pe-3"></i>Taxes And Fees</a>
+                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-gear mb-3 pe-3"></i>Taxes And Fees</a>
             </div>
             <div>
-                <a href="#"><i class="fa-solid fs-5 fa-gear mb-3 pe-3"></i>Orders</a>
+                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-gear mb-3 pe-3"></i>Orders</a>
             </div>
             <div>
-                <a href="#"><i class="fa-solid fs-5 fa-gear mb-3 pe-3"></i>Customers</a>
+                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-gear mb-3 pe-3"></i>Customers</a>
             </div>
         </ul>
     </div>

@@ -1,0 +1,158 @@
+<div class="container">
+    <div class="content dash p-5 mt-5" id="content">
+        <div class="row">
+
+            <div class="row d-flex ">
+
+                <h2 class="col text-primary">Add New User</h2>
+
+                <div class="col  text-end">
+                    <a asp-action="User_List">
+                        <button class="btn btn-outline-primary " type="submit"><i
+                                class="fa-solid fa-angle-left pe-2"></i>Back</button>
+                    </a>
+                </div>
+            </div>
+            <div class="row p-3 mt-3" style="background-color: rgb(222, 222, 245);">
+                <form action="">
+                    <div class="d-flex row m-1">
+                        <div class="col-md ps-1 form-floating mb-2">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="p-2 me-2 floatingInput">First Name</label>
+                        </div>
+                        <div class="col-md ps-1 form-floating mb-2">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Last Name</label>
+                        </div>
+                    </div>
+
+                    <div class="d-flex row m-1">
+                        <div class="col-md ps-1 form-floating mb-2">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="p-2 me-2 floatingInput">UserName</label>
+                        </div>
+                        <div class="col-md ps-1">
+                            <div class="form-floating">
+                                <select class="form-select" id="floatingSelectGrid"
+                                    aria-label="Floating label select example">
+                                    <option selected>Select Role</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                                <label for="floatingSelectGrid">Role</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex row m-1">
+                        <div class="col-md ps-1 form-floating mb-2">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="p-2 me-2 floatingInput">Email</label>
+                        </div>
+                        <div class="col-md ps-1 position-relative">
+                            <div class="form-floating mb-2">
+                                <input type="email" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Password</label>
+                            </div>
+                            <span class="position-absolute passInput"><i id="passwordIcon"
+                                    class="fa-regular fa-eye-slash"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex row m-1 ">
+                        <div class="input-group ps-0 mb-1">
+                            <label for="file-input-thing" id="file-input-label" class="form-control" />
+                            <div class="col  d-flex flex-column align-items-center justify-content-center mt-3">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <p class="mb-0">Browse File</p>
+                            </div>
+                            <input type="file" id="file-input-thing" style="width: 0;">
+                        </div>
+                    </div>
+
+                    <div class="d-flex row m-1">
+                        <div class="col-md ps-1">
+                            <div class="form-floating">
+                                <select class="form-select" id="floatingSelectGrid"
+                                    aria-label="Floating label select example">
+                                    <option selected>Select Country</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                                <label for="floatingSelectGrid">Country</label>
+                            </div>
+                        </div>
+                        <div class="col-md ps-1">
+                            <div class="form-floating">
+                                <select class="form-select" id="floatingSelectGrid"
+                                    aria-label="Floating label select example">
+                                    <option selected>Select State</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                                <label for="floatingSelectGrid">State</label>
+                            </div>
+                        </div>
+                        <div class="col-md ps-1">
+                            <div class="form-floating">
+                                <select class="form-select" id="floatingSelectGrid"
+                                    aria-label="Floating label select example">
+                                    <option selected>Select City</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                                <label for="floatingSelectGrid">City</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex row m-1">
+                        <div class="col-md ps-1 form-floating mb-2">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="p-2 me-2 floatingInput">Zipcode</label>
+                        </div>
+                        <div class="col-md ps-1 form-floating mb-2">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Address</label>
+                        </div>
+                        <div class="col-md ps-1 form-floating mb-2">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Phone</label>
+                        </div>
+                    </div>
+
+                    <div class="d-flex row ps-2">
+                        <a asp-action="User_List" class="col-md-2">
+                            <button class="btn btn-primary " type="submit">Create User</button>
+                        </a>
+                        <a asp-action="User_List" class="col-md-2">
+                            <button class="btn btn-outline-primary " type="submit">Cancel</button>
+                        </a>
+
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</div>
+
+<script>
+    const fileSelected = document.getElementById('fInput');
+    fileSelected.addEventListener('change', function (e) {
+        const newDiv = document.getElementById('newDiv');
+        if (fileSelected.length !== 0) {
+            newDiv.innerHTML = e.target.files[0].name;
+        } else {
+            newDiv.innerHTML = "No File Selected";
+        }
+    });
+</script>

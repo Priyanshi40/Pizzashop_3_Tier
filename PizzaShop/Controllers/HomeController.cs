@@ -27,31 +27,28 @@ namespace PizzaShop.Controllers
         {
             if (Request.Cookies.ContainsKey(CookieUserEmail))
             {
-                Response.Cookies.Delete(CookieUserEmail);
-                // return View("Dashboard");
+                // Response.Cookies.Delete(CookieUserEmail);
+                return View("Dashboard");
             }
             return View(new LoginViewModel());
         }
 
         public IActionResult Forgot()
         {
-            // ViewData["Email"] = TempData["Email"];
-            // TempData.Keep("Email");
-            // Console.WriteLine(email);
-            // var model = new LoginViewModel
-            // {
-            //     Email = email
-            // };
-            // Console.WriteLine(model.Email);
             return View();
         }
-        public IActionResult ResetPassword(string email)
+        public IActionResult ResetPassword(string email, string token, DateTime time)
         {
+            Console.WriteLine(time);
             if(email.IsNullOrEmpty()){
                 TempData["Error"] = "Invalid email";
                 return View();
             }
-            var model = new ResetPasswordViewModel { Email = email};
+            if(time < DateTime.UtcNow){
+                TempData["Error"] = "Reset Token Expired !!";
+                return View("Index");
+            }
+            var model = new ResetPasswordViewModel { Email = email, Token = token, ExpiryToken = time};
             return View(model);
         }
 
@@ -60,7 +57,7 @@ namespace PizzaShop.Controllers
         {
             if (!ModelState.IsValid)
             {
-                TempData["Error"] = "Enter valid password!!";
+                TempData["Error"] = "Enter valid new password!!";
                 return View();
             }
             var user = await _loginService.GetUser(model.Email);
@@ -68,6 +65,11 @@ namespace PizzaShop.Controllers
             {
                 TempData["Error"] = "User not found!! Try entering valid email and password";
                 return View();
+            }
+
+            if(model.Token != Request.Form["Token"] || model.ExpiryToken < DateTime.UtcNow){
+                TempData["Error"] = "Invalid token or Token Expired!!";
+                return View("Index");
             }
             _loginService.UpdatePasswordService(user, model.NewPassword);
 
@@ -124,9 +126,15 @@ namespace PizzaShop.Controllers
 
         [HttpPost]
         // public async Task<IActionResult> ForgotPassword(string email){
-        public async Task<IActionResult> ForgotPassword(string email){
-            string resetLink = Url.Action("ResetPassword", "Home", new { email = email }, Request.Scheme);
-            await _mailService.SendForgotPasswordEmail(email,resetLink,_mailSettings.Host,_mailSettings.EmailId,_mailSettings.Password,_mailSettings.Port);
+        public async Task<IActionResult> ForgotPassword(ForgotViewModel model){
+            string resetCode = Guid.NewGuid().ToString();
+            DateTime expirytime = DateTime.UtcNow.AddMinutes(1);
+            Console.WriteLine(expirytime);
+            model.Token = resetCode;
+            model.ExpiryTime = expirytime;
+
+            string resetLink = Url.Action("ResetPassword", "Home", new { email = model.Email, token = resetCode, time = expirytime }, Request.Scheme);
+            await _mailService.SendForgotPasswordEmail(model.Email,resetLink,_mailSettings.Host,_mailSettings.EmailId,_mailSettings.Password,_mailSettings.Port);
             TempData["Message"]= "Password reset link has been sent to your email";
             return RedirectToAction("Forgot");
         }

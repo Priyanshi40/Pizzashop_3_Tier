@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/User.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg position-fixed bg-primary ps-4">
+            <div class="d-flex align-items-center justify-content-center" id="sidebarToggle">
+                <img src="./Assets/images/logos/pizzashop_logo.png" alt="" style="width: 60px;"><b
+                    class="text-white ps-2">PIZZASHOP</b>
+            </div>
+
+            <!-- <div class="row text-end">
+                <img src="./Assets/images/Default_pfp.svg.png" alt="" style="height: 50px; width: 60px;">
+            </div> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- </div> -->
+        </nav>
+        <div class="sidebar justify-content-center align-items-center" id="sidebar">
+            <ul>
+                <div class="d-flex row align-items-center mb-md-4 mt-md-2">
+                    <img src="./Assets/images/logos/pizzashop_logo.png" alt="" style="width: 80px;">
+                    <b class="text-primary ps-0 col-md fs-4">PIZZASHOP</b>
+                    <button type="button" class="btn-close text-end col-md" aria-label="Close" id="closeBtn"></button>
+                </div>
+                <div>
+                    <a href="User_List.html"><i class="fa-solid fs-5 fa-users mb-3 pe-3"></i>Users</a>
+                </div>
+                <div>
+                    <a href="Roles.html"><i class="fa-solid fs-5 fa-user-plus mb-3 pe-3"></i></i>Roles and Permission</a>
+                </div>
+                <div>
+                    <!-- <i class="fa-solid fa-bell-concierge"></i> -->
+                    <a href="Menu.html"><i class="fa-solid fs-5 fa-bell-concierge mb-3 pe-3"></i>Menu</a>
+                </div>
+                <div>
+                    <a href="#"><i class="fa-solid fs-5 fa-table mb-3 pe-3"></i>Table and Section</a>
+                </div>
+                <div>
+                    <a href="#"><i class="fa-solid fs-5 fa-gear mb-3 pe-3"></i>Taxes And Fees</a>
+                </div>
+                <div>
+                    <a href="#"><i class="fa-solid fs-5 fa-gear mb-3 pe-3"></i>Orders</a>
+                </div>
+                <div>
+                    <a href="#"><i class="fa-solid fs-5 fa-gear mb-3 pe-3"></i>Customers</a>
+                </div>
+            </ul>
+        </div>
+        <div class="content dash p-5 mt-5" id="content">
+            <div class="row">
+
+
+                <div class="row d-flex ">
+
+                    <h2 class="col text-primary">Edit User</h2>
+
+                    <div class="col  text-end">
+                        <a asp-action="User_List">
+                            <button class="btn btn-outline-primary " type="submit"><i
+                                    class="fa-solid fa-angle-left pe-2"></i>Back</button>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="row p-3 mt-3" style="background-color: rgb(222, 222, 245);">
+                    <form action="">
+                        
+                        <div class="d-flex row m-1">
+                            <div class="col-md ps-1 form-floating mb-2">
+                                <input type="email" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="p-2 me-2 floatingInput">First Name</label>
+                            </div>
+                            <div class="col-md ps-1 form-floating mb-2">
+                                <input type="email" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Last Name</label>
+                            </div>
+                        </div>
+
+                        <div class="d-flex row m-1">
+                            <div class="col-md ps-1 form-floating mb-2">
+                                <input type="email" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="p-2 me-2 floatingInput">UserName</label>
+                            </div>
+                            <div class="col-md ps-1">
+                                <div class="form-floating">
+                                    <select class="form-select" id="floatingSelectGrid"
+                                        aria-label="Floating label select example">
+                                        <option selected>Select Role</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                    <label for="floatingSelectGrid">Role</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex row m-1">
+                            <div class="col-md ps-1 form-floating mb-2">
+                                <input type="email" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="p-2 me-2 floatingInput">Email</label>
+                            </div>
+                            <div class="col-md ps-1 position-relative">
+                                <div class="form-floating mb-2">
+                                    <input type="email" class="form-control" id="floatingInput"
+                                        placeholder="name@example.com">
+                                    <label for="floatingInput">Password</label>
+                                </div>
+                                <span class="position-absolute passInput"><i id="passwordIcon"
+                                        class="fa-regular fa-eye-slash"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex row m-1 ">
+                            <div class="input-group ps-0 mb-1">
+                                <label for="file-input-thing" id="file-input-label" class="form-control" />
+                                <div class="col  d-flex flex-column align-items-center justify-content-center mt-3">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <p class="mb-0">Browse File</p>
+                                </div>
+                                <input type="file" id="file-input-thing" style="width: 0;">
+                            </div>
+                        </div>
+
+                        <div class="d-flex row m-1">
+                            <div class="col-md ps-1">
+                                <div class="form-floating">
+                                    <select class="form-select" id="floatingSelectGrid"
+                                        aria-label="Floating label select example">
+                                        <option selected>Select Country</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                    <label for="floatingSelectGrid">Country</label>
+                                </div>
+                            </div>
+                            <div class="col-md ps-1">
+                                <div class="form-floating">
+                                    <select class="form-select" id="floatingSelectGrid"
+                                        aria-label="Floating label select example">
+                                        <option selected>Select State</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                    <label for="floatingSelectGrid">State</label>
+                                </div>
+                            </div>
+                            <div class="col-md ps-1">
+                                <div class="form-floating">
+                                    <select class="form-select" id="floatingSelectGrid"
+                                        aria-label="Floating label select example">
+                                        <option selected>Select City</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                    <label for="floatingSelectGrid">City</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex row m-1">
+                            <div class="col-md ps-1 form-floating mb-2">
+                                <input type="text" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="p-2 me-2 floatingInput">Zipcode</label>
+                            </div>
+                            <div class="col-md ps-1 form-floating mb-2">
+                                <input type="text" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Address</label>
+                            </div>
+                            <div class="col-md ps-1 form-floating mb-2">
+                                <input type="text" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Phone</label>
+                            </div>
+                        </div>
+
+                        <div class="d-flex row ps-2">
+                            <a href="User_List.html" class="col-md-2">
+                                <button class="btn btn-primary " type="submit">Update User</button>
+                            </a>
+                            <a href="User_List.html" class="col-md-2">
+                                <button class="btn btn-outline-primary " type="submit">Cancel</button>
+                            </a>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <script>
+        document.getElementById('sidebarToggle').addEventListener('click', function () {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('show');
+            var content = document.getElementById('content');
+            if (sidebar.classList.contains("show")) {
+                content.classList.add("shifted");
+            } else {
+                content.classList.remove("shifted");
+            }
+        });
+
+        document.getElementById('closeBtn').addEventListener('click', function () {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('show');
+        });
+
+        const fileSelected = document.getElementById('fInput');
+        fileSelected.addEventListener('change', function (e) {
+            const newDiv = document.getElementById('newDiv');
+            if (fileSelected.length !== 0) {
+                newDiv.innerHTML = e.target.files[0].name;
+            } else {
+                newDiv.innerHTML = "No File Selected";
+            }
+        });
+    </script>
+</body>
+
+</html>

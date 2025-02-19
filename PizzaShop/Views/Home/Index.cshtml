@@ -66,9 +66,6 @@
                             Remember Me
                         </label>
                     </div>
-                    @* <a asp-action="LogIn" asp-route-id="@Model?.email">LogIn</a>  *@
-                    @* <div class="col text-end pe-0"><a asp-action="Forgot" style="text-decoration: none;">Forgot
-                            Password?</a></div> *@
                     <div class="col text-end pe-0"><a asp-action="Forgot" asp-route-email="@Model?.Email"
                             style="text-decoration: none;">Forgot
                             Password?</a></div>
@@ -81,7 +78,7 @@
 
                 @if (TempData["Error"] != null)
                 {
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger fs-6">
                         @TempData["Error"]
                     </div>
                 }

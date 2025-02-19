@@ -12,7 +12,10 @@ public class LoginRepository
         _context = context;
     }
     public async Task<User?> GetUserByEmailAsync(string email)
+   
     {
+        // var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+        // Console.WriteLine(user.Email);
         return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
     }
     public void UpdatePassword(User user, string newPassword)
