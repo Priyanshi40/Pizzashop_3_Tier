@@ -18,14 +18,23 @@
 <body class="bg-body-tertiary">
     @* <header> *@
     <nav class="navbar navbar-expand-lg position-fixed bg-primary ps-4">
-        <div class="d-flex align-items-center justify-content-center" id="sidebarToggle">
-            <img src="~/images/logos/pizzashop_logo.png" alt="" style="width: 60px;"><b
-                class="text-white ps-2">PIZZASHOP</b>
+        <div class="container-fluid">
+            <div class="col d-flex align-items-center justify-content-start" id="sidebarToggle">
+                <img src="~/images/logos/pizzashop_logo.png" alt="" style="width: 60px;"><b
+                    class="text-white ps-2">PIZZASHOP</b>
+            </div>
+            @* <button class="col navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> *@
+            <div class="col overflow-hidden d-flex align-items-center justify-content-end">
+                <img src="~/images/Default_pfp.svg.png" class="img-fluid me-1" style="height: 40px; width: 70px;">
+                @* <img src="~/images/icons/downward-arrow.svg"/> *@
+            </div>
+            
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+
     </nav>
     @* </header> *@
     <div class="sidebar justify-content-center align-items-center" id="sidebar">
@@ -36,25 +45,32 @@
                 <button type="button" class="btn-close text-end col-md" aria-label="Close" id="closeBtn"></button>
             </div>
             <div>
-                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-users mb-3 pe-3"></i>Users</a>
+                <a asp-controller="User" asp-action="User_List"><i
+                        class="fa-solid fs-5 fa-users mb-3 pe-3"></i>Users</a>
             </div>
             <div>
-                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-user-plus mb-3 pe-3"></i></i>Roles and Permission</a>
+                <a asp-controller="User" asp-action="User_List"><i
+                        class="fa-solid fs-5 fa-user-plus mb-3 pe-3"></i></i>Roles and Permission</a>
             </div>
             <div>
-                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-bell-concierge mb-3 pe-3"></i>Menu</a>
+                <a asp-controller="User" asp-action="User_List"><i
+                        class="fa-solid fs-5 fa-bell-concierge mb-3 pe-3"></i>Menu</a>
             </div>
             <div>
-                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-table mb-3 pe-3"></i>Table and Section</a>
+                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-table mb-3 pe-3"></i>Table
+                    and Section</a>
             </div>
             <div>
-                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-gear mb-3 pe-3"></i>Taxes And Fees</a>
+                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-gear mb-3 pe-3"></i>Taxes And
+                    Fees</a>
             </div>
             <div>
-                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-gear mb-3 pe-3"></i>Orders</a>
+                <a asp-controller="User" asp-action="User_List"><i
+                        class="fa-solid fs-5 fa-gear mb-3 pe-3"></i>Orders</a>
             </div>
             <div>
-                <a asp-controller="User" asp-action="User_List"><i class="fa-solid fs-5 fa-gear mb-3 pe-3"></i>Customers</a>
+                <a asp-controller="User" asp-action="User_List"><i
+                        class="fa-solid fs-5 fa-gear mb-3 pe-3"></i>Customers</a>
             </div>
         </ul>
     </div>

@@ -24,24 +24,24 @@ public class JWTServices
         _rememberMeExpiryDays = int.Parse(config["Jwt:RememberMeExpiryDays"]);
     }
 
-    public string GenerateToken(string email, string rememberMe)
+    public string GenerateToken(User user)
     // public string GenerateToken(string email)
     {
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretKey));
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-        // var expiry = rememberMe!= null ? DateTime.UtcNow.AddDays(_rememberMeExpiryDays) : DateTime.UtcNow.AddMinutes(_tokenExpiry);
-        var expiry = rememberMe=="True" ? DateTime.UtcNow.AddDays(_rememberMeExpiryDays) : DateTime.UtcNow.AddMinutes(_tokenExpiry);
-        // var expiry = DateTime.UtcNow.AddMinutes(_tokenExpiry);
+        var expiry = DateTime.UtcNow.AddMinutes(_tokenExpiry);
 
-        Console.WriteLine("Service : " + expiry);
+        Console.WriteLine(user.Role);
         var authClaims = new List<Claim> {
-            new("Remember", rememberMe),
-            new(JwtRegisteredClaimNames.Email, email),
+            // new("Remember", rememberMe),
+            new(ClaimTypes.Role, user.Role.ToString()),
+            new(JwtRegisteredClaimNames.Email, user.Email),
             new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
 
         var token = new JwtSecurityToken(
             issuer: _issuer,
+            audience: _issuer,
             expires: expiry,
             claims: authClaims,
             signingCredentials: credentials

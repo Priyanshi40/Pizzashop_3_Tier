@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aZt4n/GmotK5ezEN2C0hmdhVoWWTMHhDkIGnvN4xjnA=",
+  "Hash": "+8rxJuO1nWZrQD71jqeU7WC44AeVJHTu5GNhmhtSEmU=",
   "Source": "PizzaShop",
   "BasePath": "_content/PizzaShop",
   "Mode": "Default",
@@ -185,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\icons\\dinner-table.svg"
+    },
+    {
+      "Identity": "C:\\Users\\pci72\\Desktop\\T44\\Pizzashop\\PizzaShop\\wwwroot\\images\\icons\\downward-arrow.svg",
+      "SourceId": "PizzaShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci72\\Desktop\\T44\\Pizzashop\\PizzaShop\\wwwroot\\",
+      "BasePath": "_content/PizzaShop",
+      "RelativePath": "images/icons/downward-arrow.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\icons\\downward-arrow.svg"
     },
     {
       "Identity": "C:\\Users\\pci72\\Desktop\\T44\\Pizzashop\\PizzaShop\\wwwroot\\images\\icons\\non-veg-icon.svg",

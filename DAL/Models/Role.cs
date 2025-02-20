@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace DAL.Models;
 
 public enum RoleName{
-    Chef, AccountManager, SuperAdmin
+    Chef, AccountManager, [EnumMember(Value = "Super Admin")]SuperAdmin
 }
 
 public partial class Role
